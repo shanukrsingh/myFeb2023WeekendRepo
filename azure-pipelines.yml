@@ -20,6 +20,12 @@ steps:
 - script: echo $(pwd)
   displayName: 'working directory'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '/home/vsts/work/1/s/MyWebApp/target'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
