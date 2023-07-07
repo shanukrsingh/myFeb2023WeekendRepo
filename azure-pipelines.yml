@@ -20,9 +20,10 @@ steps:
 - script: echo $(pwd)
   displayName: 'working directory'
 
+
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '/home/vsts/work/1/s/MyWebApp/target'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/MyWebApp/target'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
